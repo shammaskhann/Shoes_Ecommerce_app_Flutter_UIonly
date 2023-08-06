@@ -1,3 +1,4 @@
+import 'package:e_commerce_shop_page/ui/item_view.dart';
 import 'package:flutter/material.dart';
 
 class Shop extends StatefulWidget {
@@ -122,18 +123,20 @@ class _shopState extends State<Shop> {
                           ),
                         ],
                       ),
-                             Image.asset('assets/images/banner.png', scale: 4,),
-                          // Container(
-                          //   height: 150,
-                          //   width: 150,
-                          //   decoration: const BoxDecoration(
-                          //     image: DecorationImage(
-                          //       image: AssetImage('assets/images/banner.png'),
-                          //       fit: BoxFit.cover,
-                          //     ),
-                          //   ),
-                          // ),
-
+                      Image.asset(
+                        'assets/images/banner.png',
+                        scale: 4,
+                      ),
+                      // Container(
+                      //   height: 150,
+                      //   width: 150,
+                      //   decoration: const BoxDecoration(
+                      //     image: DecorationImage(
+                      //       image: AssetImage('assets/images/banner.png'),
+                      //       fit: BoxFit.cover,
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
@@ -198,8 +201,8 @@ class _shopState extends State<Shop> {
             ),
             //Best Selling List View
             Container(
-              height: 370,
-              width: 400,
+              height: MediaQuery.of(context).size.height * 0.38,
+              width: double.infinity,
               child: CustomScrollView(
                 shrinkWrap: true,
                 slivers: [
@@ -213,7 +216,7 @@ class _shopState extends State<Shop> {
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
                         return _bestSellingCard(
-                            'Nike Air Max 270', 2000, 'Nike');
+                            context, 'Nike Air Max 270', 2000, 'Nike');
                       },
                       childCount: 8,
                     ),
@@ -268,40 +271,50 @@ Widget _mainPageHeading(String title) {
   );
 }
 
-Widget _bestSellingCard(String title, double price, String discrip) {
+Widget _bestSellingCard(
+    BuildContext context, title, double price, String discrip) {
   return Padding(
     padding: const EdgeInsets.only(left: 15.0, top: 15),
-    child: SizedBox(
-      height: 200,
-      width: 150,
-      child: Card(
-        color: Colors.grey.shade200,
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        child: Column(
-          children: [
-            Image.asset('assets/images/shoe1.png'),
-            Padding(
-              padding: const EdgeInsets.only(top: 15, left: 8.0),
-              child: Text(
-                title,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    child: GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const itemView()),
+        );
+      },
+      child: SizedBox(
+        height: 200,
+        width: 150,
+        child: Card(
+          color: Colors.grey.shade200,
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          child: Column(
+            children: [
+              Image.asset('assets/images/shoe1.png'),
+              Padding(
+                padding: const EdgeInsets.only(top: 15, left: 8.0),
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  'Rs $price',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
-                ),
-              ],
-            ),
-          ],
+              Row(
+                children: [
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    'Rs $price',
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     ),

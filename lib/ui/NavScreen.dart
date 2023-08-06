@@ -1,4 +1,4 @@
-import 'package:e_commerce_shop_page/shop.dart';
+import 'package:e_commerce_shop_page/ui/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
