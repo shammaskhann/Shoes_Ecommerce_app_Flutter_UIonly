@@ -122,20 +122,18 @@ class _shopState extends State<Shop> {
                           ),
                         ],
                       ),
-                      Column(
-                        children: [
-                          Container(
-                            height: 150,
-                            width: 210,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('assets/images/banner.png'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
+                             Image.asset('assets/images/banner.png', scale: 4,),
+                          // Container(
+                          //   height: 150,
+                          //   width: 150,
+                          //   decoration: const BoxDecoration(
+                          //     image: DecorationImage(
+                          //       image: AssetImage('assets/images/banner.png'),
+                          //       fit: BoxFit.cover,
+                          //     ),
+                          //   ),
+                          // ),
+
                     ],
                   ),
                 ),

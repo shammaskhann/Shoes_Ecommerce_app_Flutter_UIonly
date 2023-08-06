@@ -1,7 +1,10 @@
 import 'package:e_commerce_shop_page/SplashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -14,14 +17,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme:  const TextTheme(
-          displayLarge: TextStyle(color: Color.fromARGB(255, 243, 101, 90) ,fontSize: 30, fontWeight: FontWeight.bold ,decoration: TextDecoration.underline),
-          displayMedium: TextStyle(color: Colors.red),
-          displaySmall: TextStyle(color: Colors.red),
-        )
-      ),
+          textTheme: const TextTheme(
+        displayLarge: TextStyle(
+            color: Color.fromARGB(255, 243, 101, 90),
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            decoration: TextDecoration.underline),
+            displayMedium: TextStyle(color: Colors.red),
+            displaySmall: TextStyle(color: Colors.red),
+      )),
       home: SplashScreen(),
     );
   }
-}
-
+} 

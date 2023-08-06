@@ -48,6 +48,11 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   google_nav_bar: ^5.0.6
+  firebase_core: ^2.15.0
+  firebase_storage: ^11.2.5
+  firebase_auth: ^4.7.2
+  cloud_firestore: ^4.8.4
+  fluttertoast: ^8.0.9
 
 
 # For information on the generic Dart part of this file, see the
